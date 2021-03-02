@@ -1,0 +1,57 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "jsRules": {},
+  "rules": {
+    "no-empty-interface": false,
+    "no-console": false,
+    "no-empty": true,
+    "no-unused-expression": false,
+    "no-shadowed-variable": false,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "case-insensitive",
+        "module-source-path": "full",
+        "grouped-imports": true,
+        "groups": [
+          {
+            "name": "react",
+            "match": "^react$",
+            "order": 1
+          },
+          {
+            "name": "Styles",
+            "match": "^.*scss$",
+            "order": 60
+          },
+          {
+            "name": "Shared",
+            "match": "^shared\/.*",
+            "order": 21
+          },
+          {
+            "name": "Models",
+            "match": "^.*\\.model$",
+            "order": 30
+          },
+          {
+            "name": "internal modules",
+            "match": "^\\..*",
+            "order": 23
+          },
+          {
+            "name": "third party imports",
+            "match": ".*",
+            "order": 22
+          }
+        ]
+      }
+    ]
+  },
+  "linterOptions": {
+    "exclude": ["node_modules/**/*", "dist/**/*"]
+  },
+  "rulesDirectory": []
+}
