@@ -1,0 +1,19 @@
+.weather-forecast-page-header {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #96baca;
+
+  &__icon {
+    font-size: 30px;
+    margin-right: 10px;
+    color: white;
+  }
+
+  &__city {
+    font-size: 25px;
+    font-weight: 500;
+    color: white;
+  }
+}
