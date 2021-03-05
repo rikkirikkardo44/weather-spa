@@ -1,9 +1,19 @@
 import React from "react";
 
-import "./App.scss";
+import { WeatherForecastPage } from "pages/WeatherForecastPage";
+
+import { ConfigCenterContextProvider } from "../contexts/ConfigCenter";
+
+import "shared/styles/app.scss";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <ConfigCenterContextProvider>
+      <div className="app">
+        <WeatherForecastPage />
+      </div>
+    </ConfigCenterContextProvider>
+  );
 }
 
 export default App;
