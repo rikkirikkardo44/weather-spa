@@ -1,0 +1,99 @@
+@import "colors";
+
+.ant-modal-content {
+  width: 486px !important;
+  height: 160px !important;
+  border-radius: 6px;
+
+  .ant-modal-body {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    height: 100%;
+    padding: 10px 16px 8px 16px;
+  }
+
+  .ant-modal-confirm-body-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .anticon {
+    margin-right: 10px;
+  }
+
+  .ant-modal-confirm-btns {
+    align-self: flex-end;
+  }
+
+  .ant-modal-confirm-title {
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .ant-modal-confirm-content {
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    margin-left: 0 !important;
+    margin-top: 25px;
+  }
+
+  .ant-modal-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .cancel-button {
+    color: $primary-color;
+    border: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    height: 40px;
+
+    &:hover {
+      border-radius: 4px;
+      box-shadow: 1px 2px 4px darkgray;
+
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .confirm-button {
+    background: $primary-color;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    height: 40px;
+
+    &:hover {
+      box-shadow: 1px 2px 4px darkgray;
+
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.modal-without-footer {
+  .ant-modal-confirm-btns {
+    display: none;
+  }
+}

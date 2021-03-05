@@ -1,0 +1,21 @@
+@import "../../../node_modules/antd/dist/antd.compact.min";
+
+@import "modal";
+
+@import "src/core/contexts/ConfigCenter/components/ApiKeyRequestForm/ApiKeyRequestForm";
+
+@import "src/pages/WeatherForecastPage/WeatherForecastPage";
+@import "src/pages/WeatherForecastPage/components/WeatherForecastPageHeader/WeatherForecastPageHeader";
+@import "src/pages/WeatherForecastPage/components/WeatherForecastPageBody/WeatherForecastPageBody";
+@import "src/pages/WeatherForecastPage/components/WeatherForecastPagePagination/WeatherForecastPagePagination";
+
+.app {
+  .ant-spin-nested-loading {
+    height: 100%;
+    .ant-spin-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
