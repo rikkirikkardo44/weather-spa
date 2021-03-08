@@ -8,12 +8,22 @@
   &__icon {
     font-size: 30px;
     margin-right: 10px;
-    color: white;
+    color: #e9e8cc;
   }
 
   &__city {
     font-size: 25px;
     font-weight: 500;
-    color: white;
+    color: #e9e8cc;
+  }
+}
+
+.map-modal {
+  .ant-modal-body {
+    height: auto;
+    padding: 0;
+  }
+  .ant-modal-content {
+    height: 400px !important;
   }
 }
