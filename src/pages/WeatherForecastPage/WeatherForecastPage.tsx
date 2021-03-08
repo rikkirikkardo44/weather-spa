@@ -10,16 +10,19 @@ import { WeatherForecastPagePagination } from "./components/WeatherForecastPageP
 export const WeatherForecastPage: React.FC = React.memo((props) => {
   const [configCenterState, configCenterAction] = useConfigCenter();
   return (
-    <div className="weather-forecast-page">
-      <div className="wrapper">
-        <div className="content">
-          <WeatherForecastPageHeader cityName={configCenterState.cityName} setCityName={configCenterAction.setCityName} />
-          <Loader isLoading={configCenterState.loading}>
+    <Loader isLoading={configCenterState.loading}>
+      <div className="weather-forecast-page">
+        <div className="wrapper">
+          <div className="content">
+            <WeatherForecastPageHeader
+              cityName={configCenterState.data?.city.name}
+              setCityName={configCenterAction.setCityName}
+            />
             <WeatherForecastPageBody data={configCenterState.data} timestamp={configCenterState.timestamps} />
-          </Loader>
-          <WeatherForecastPagePagination />
+            <WeatherForecastPagePagination />
+          </div>
         </div>
       </div>
-    </div>
+    </Loader>
   );
 });

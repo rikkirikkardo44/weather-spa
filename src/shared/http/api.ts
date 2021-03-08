@@ -16,7 +16,7 @@ export class WeatherService {
     const { cityName, apiKey, body = {} } = params;
     const { cnt, units } = body;
     return new Promise((resolve, reject) => {
-      const url = `/forecast?q=${cityName}&${cnt ? `cnt=${cnt}&` : ""}${units ? `units=${units}&` : "units=metric&"}appid=${apiKey}`;
+      const url = `/forecast?q=${cityName}&${cnt ? `cnt=${cnt}&` : ""}${units ? `units=${units}&` : "units=metric&"}lang=${LanguageEnum.Russian}&appid=${apiKey}`;
       return axios
         .request({ url, method: "get" })
         .then((res) => {

@@ -1,7 +1,6 @@
 .weather-forecast-page-body {
   flex-grow: 1;
   display: flex;
-  color: white;
   font-size: 15px;
   line-height: 20px;
 
@@ -26,9 +25,9 @@
       }
     }
 
-    .weather-name {
-      color: #6c8e85;
-      font-size: 35px;
+    .weather-description {
+      color: #e9e8cc;
+      font-size: 25px;
       font-weight: 500;
       height: 35%;
       margin-top: 35px;

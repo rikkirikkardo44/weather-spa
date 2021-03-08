@@ -2,22 +2,27 @@ import React, { useCallback, useEffect, useState } from "react";
 
 import { Alert } from "antd";
 
+import { AModal } from "shared/components/AModal/AModal";
+import { AForm } from "shared/components/AForm/AForm";
+import {
+  DEFAULT_CITY_NAME,
+  DEFAULT_TIMESTAMPS,
+  MAX_TIMESTAMPS,
+  TIMESTAMPS_STEP,
+} from "shared/constants/api.constants";
 import { WeatherForecastResponseContract, WeatherService } from "shared/http/api";
-import { API_KEY, DEFAULT_TIMESTAMPS, MAX_TIMESTAMPS, TIMESTAMPS_STEP } from "shared/constants/api.constants";
-import { showCustomModal } from "shared/utils/modal.utils";
 
 import { ConfigCenterContext } from "./ConfigCenterContext";
-import { ApiKeyRequestForm } from "./components/ApiKeyRequestForm";
 
 export const ConfigCenterContextProvider: React.FC = React.memo(({ children }) => {
   const [loading, setLoading] = useState(false);
-  const [apiKey, setApiKey] = useState<string>(API_KEY);
+  const [apiKey, setApiKey] = useState<string>();
   const [timestamps, setTimestamps] = useState(DEFAULT_TIMESTAMPS);
-  const [cityName, setCityName] = useState<string>("chelyabinsk");
+  const [cityName, setCityName] = useState<string>(DEFAULT_CITY_NAME);
   const [weatherForecast, setWeatherForecast] = useState<WeatherForecastResponseContract>();
   const [error, setError] = useState<string>();
-  console.log(weatherForecast);
-  console.log(cityName)
+  const [visibleApiKeyModal, setVisibleApiKeyModal] = useState(false);
+
   const fetchWeatherForecast = useCallback(async () => {
     if (!apiKey) return;
     setLoading(true);
@@ -33,13 +38,7 @@ export const ConfigCenterContextProvider: React.FC = React.memo(({ children }) =
 
   useEffect(() => {
     if (!apiKey) {
-      showCustomModal({
-        className: "modal-without-footer",
-        cancelText: "Отмена",
-        okText: "Сохранить",
-        title: "Для полечния погоды нужен ApiKey",
-        content: <ApiKeyRequestForm onSubmit={setApiKey} />,
-      });
+      setVisibleApiKeyModal(true);
     } else {
       fetchWeatherForecast();
     }
@@ -68,6 +67,19 @@ export const ConfigCenterContextProvider: React.FC = React.memo(({ children }) =
     >
       {error && <Alert message={error} type="error" />}
       {!error && children}
+      <AModal
+        visible={visibleApiKeyModal}
+        onCancel={() => setVisibleApiKeyModal(false)}
+        title="Для полечния погоды нужен ApiKey"
+      >
+        <AForm
+          placeholder="Введите ApiKey"
+          onSubmit={(value: string) => {
+            setApiKey(value);
+            setVisibleApiKeyModal(false);
+          }}
+        />
+      </AModal>
     </ConfigCenterContext.Provider>
   );
 });

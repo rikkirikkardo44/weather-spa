@@ -2,12 +2,12 @@
 
 @import "modal";
 
-@import "src/core/contexts/ConfigCenter/components/ApiKeyRequestForm/ApiKeyRequestForm";
-
 @import "src/pages/WeatherForecastPage/WeatherForecastPage";
 @import "src/pages/WeatherForecastPage/components/WeatherForecastPageHeader/WeatherForecastPageHeader";
 @import "src/pages/WeatherForecastPage/components/WeatherForecastPageBody/WeatherForecastPageBody";
 @import "src/pages/WeatherForecastPage/components/WeatherForecastPagePagination/WeatherForecastPagePagination";
+
+@import "src/shared/components/AForm/AForm";
 
 .app {
   .ant-spin-nested-loading {
